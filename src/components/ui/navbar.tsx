@@ -1,6 +1,4 @@
 import { useState, type ReactNode } from "react";
-import NavbarLightTexture from "@/assets/images/bg-light.webp";
-import NavbarDarkTexture from "@/assets/images/bg-dark.webp";
 import NavbarLogo from "@/assets/images/aottg2-navbar-logo.webp";
 import LogoDark from "@/assets/images/aottg2-logo-dark.png";
 import LogoLight from "@/assets/images/aottg2-logo-light.webp";
@@ -51,18 +49,8 @@ export function Navbar({ items = defaultItems, logo = "navbar", logoText, fixed 
 
   return (
     <nav className={cn(fixed && "fixed top-0", "z-50 w-full", className)}>
-      <div className="relative flex h-14 w-full items-center justify-between overflow-hidden px-4 shadow-lg lg:h-16 lg:px-8">
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-repeat-x dark:hidden"
-          style={{ backgroundImage: `url(${NavbarLightTexture})`, backgroundSize: "auto 100%", backgroundPosition: "center" }}
-        />
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 hidden bg-repeat-x dark:block"
-          style={{ backgroundImage: `url(${NavbarDarkTexture})`, backgroundSize: "auto 100%", backgroundPosition: "center" }}
-        />
-        <button type="button" onClick={onLogoClick} className="relative z-10 min-w-0 shrink-0" aria-label="AoTTG 2 home">
+      <div className="aottg2-texture flex h-14 w-full items-center justify-between px-4 shadow-lg lg:h-16 lg:px-8">
+        <button type="button" onClick={onLogoClick} className="min-w-0 shrink-0" aria-label="AoTTG 2 home">
           {logo === "text" ? (
             <span className="aottg2-text-logo font-primary text-lg leading-none tracking-wide sm:text-xl lg:text-2xl">
               <span className="aottg2-text-logo-part text-foreground" data-text="AoTTG">AoTTG</span>
@@ -81,7 +69,7 @@ export function Navbar({ items = defaultItems, logo = "navbar", logoText, fixed 
         <button
           type="button"
           onClick={() => setOpen((value) => !value)}
-          className="relative z-10 p-2 font-primary text-2xl leading-none text-foreground lg:hidden"
+          className="p-2 font-primary text-2xl leading-none text-foreground lg:hidden"
           aria-label={open ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={open}
           aria-controls="aottg2-navbar-mobile-menu"
@@ -89,7 +77,7 @@ export function Navbar({ items = defaultItems, logo = "navbar", logoText, fixed 
           {open ? "×" : "☰"}
         </button>
 
-        <div className="relative z-10 hidden flex-row gap-6 font-primary text-foreground lg:flex">
+        <div className="hidden flex-row gap-6 font-primary text-foreground lg:flex">
           {items.map((item, index) =>
             item.href ? (
               <a key={index} href={item.href} onClick={() => selectItem(item)} className={cn("transition-colors hover:text-primary", item.active && "text-primary")}>

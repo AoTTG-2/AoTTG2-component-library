@@ -208,6 +208,51 @@
       inset 0 -1px 0 0 rgb(255 255 255 / 0.07);
   }
 
+  .aottg2-texture {
+    --aottg2-texture-bg: hsl(var(--background));
+    --aottg2-texture-grunge-opacity: 0.42;
+    --aottg2-texture-noise-opacity: 0.18;
+    --aottg2-texture-size: 180px;
+    --aottg2-texture-blend: overlay;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: var(--aottg2-texture-bg);
+  }
+
+  .aottg2-texture > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .aottg2-texture::before,
+  .aottg2-texture::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    mix-blend-mode: var(--aottg2-texture-blend);
+  }
+
+  .aottg2-texture::before {
+    background-image:
+      radial-gradient(circle at 12% 20%, rgb(255 255 255 / 0.85) 0 5%, transparent 16%),
+      radial-gradient(circle at 34% 88%, rgb(0 0 0 / 0.62) 0 7%, transparent 19%),
+      radial-gradient(circle at 68% 28%, rgb(255 255 255 / 0.6) 0 6%, transparent 18%),
+      radial-gradient(circle at 91% 72%, rgb(0 0 0 / 0.55) 0 8%, transparent 22%),
+      repeating-linear-gradient(90deg, rgb(255 255 255 / 0.16) 0 1px, transparent 1px 58px),
+      repeating-linear-gradient(0deg, rgb(0 0 0 / 0.12) 0 1px, transparent 1px 71px);
+    background-size: 46rem 22rem, 38rem 26rem, 42rem 24rem, 44rem 28rem, 13rem 100%, 100% 11rem;
+    opacity: var(--aottg2-texture-grunge-opacity);
+  }
+
+  .aottg2-texture::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.95'/%3E%3C/svg%3E");
+    background-size: var(--aottg2-texture-size) var(--aottg2-texture-size);
+    opacity: var(--aottg2-texture-noise-opacity);
+  }
+
   .aottg2-text-logo {
     display: inline-flex;
     align-items: baseline;
