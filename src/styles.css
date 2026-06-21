@@ -208,6 +208,39 @@
       inset 0 -1px 0 0 rgb(255 255 255 / 0.07);
   }
 
+  .aottg2-text-logo {
+    display: inline-flex;
+    align-items: baseline;
+    white-space: nowrap;
+    text-shadow: 0 2px 0 rgb(0 0 0 / 0.18);
+  }
+
+  .aottg2-text-logo-part {
+    position: relative;
+    display: inline-block;
+  }
+
+  .aottg2-text-logo-part::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    background-image: radial-gradient(rgb(0 0 0 / 0.7) 0.6px, transparent 0.8px);
+    background-size: 4px 4px;
+    background-position: 0 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    opacity: 0.22;
+  }
+
+  .dark .aottg2-text-logo-part::after,
+  [data-theme="dark"] .aottg2-text-logo-part::after {
+    background-image: radial-gradient(rgb(255 255 255 / 0.75) 0.6px, transparent 0.8px);
+    opacity: 0.16;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .aottg2-brush-button::before {
       animation-duration: 0.01ms;

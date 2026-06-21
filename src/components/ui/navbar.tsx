@@ -14,7 +14,8 @@ export type NavbarItem = {
 
 export type NavbarProps = {
   items?: NavbarItem[];
-  logo?: "navbar" | "dark" | "light";
+  logo?: "navbar" | "dark" | "light" | "text";
+  logoText?: string;
   fixed?: boolean;
   onLogoClick?: () => void;
   onItemSelect?: (item: NavbarItem) => void;
@@ -36,7 +37,7 @@ const logos = {
   light: LogoLight,
 } as const;
 
-export function Navbar({ items = defaultItems, logo = "navbar", fixed = false, onLogoClick, onItemSelect, className }: NavbarProps) {
+export function Navbar({ items = defaultItems, logo = "navbar", logoText, fixed = false, onLogoClick, onItemSelect, className }: NavbarProps) {
   const [open, setOpen] = useState(false);
 
   const selectItem = (item: NavbarItem) => {
@@ -44,7 +45,8 @@ export function Navbar({ items = defaultItems, logo = "navbar", fixed = false, o
     setOpen(false);
   };
 
-  const logoSrc = logos[logo];
+  const logoSrc = logo === "text" ? undefined : logos[logo];
+  const textLogo = (logoText ?? "").toUpperCase();
 
   return (
     <nav className={cn(fixed && "fixed top-0", "z-50 w-full", className)}>
@@ -53,14 +55,26 @@ export function Navbar({ items = defaultItems, logo = "navbar", fixed = false, o
         style={{ backgroundImage: `url(${NavbarTexture})`, backgroundRepeat: "repeat-x", backgroundSize: "auto 100%", backgroundPosition: "center" }}
       >
         <button type="button" onClick={onLogoClick} className="shrink-0" aria-label="AoTTG 2 home">
-          <img src={logoSrc} className="h-7 w-auto object-contain md:h-10" alt="AoTTG 2" decoding="async" />
+          {logo === "text" ? (
+            <span className="aottg2-text-logo font-primary text-xl leading-none tracking-wide md:text-2xl">
+              <span className="aottg2-text-logo-part text-foreground" data-text="AoTTG">AoTTG</span>
+              <span className="aottg2-text-logo-part text-primary" data-text={textLogo}>{textLogo}</span>
+            </span>
+          ) : logo === "navbar" ? (
+            <>
+              <img src={NavbarLogo} className="h-7 w-auto object-contain dark:hidden md:h-10" alt="AoTTG 2" decoding="async" />
+              <img src={LogoLight} className="hidden h-7 w-auto object-contain dark:block md:h-10" alt="AoTTG 2" decoding="async" />
+            </>
+          ) : (
+            <img src={logoSrc} className="h-7 w-auto object-contain md:h-10" alt="AoTTG 2" decoding="async" />
+          )}
         </button>
 
-        <button type="button" onClick={() => setOpen((value) => !value)} className="font-primary text-2xl text-black md:hidden" aria-label={open ? "Close navigation menu" : "Open navigation menu"} aria-expanded={open}>
+        <button type="button" onClick={() => setOpen((value) => !value)} className="font-primary text-2xl text-foreground md:hidden" aria-label={open ? "Close navigation menu" : "Open navigation menu"} aria-expanded={open}>
           ☰
         </button>
 
-        <div className="hidden flex-row gap-6 font-primary text-black md:flex">
+        <div className="hidden flex-row gap-6 font-primary text-foreground md:flex">
           {items.map((item, index) =>
             item.href ? (
               <a key={index} href={item.href} onClick={() => selectItem(item)} className={cn("transition-colors hover:text-primary", item.active && "text-primary")}>
