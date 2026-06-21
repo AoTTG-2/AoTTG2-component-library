@@ -147,6 +147,33 @@
     }
   }
 
+  @keyframes aottg2-skeleton-shimmer {
+    from {
+      background-position: 200% 0;
+    }
+    to {
+      background-position: -200% 0;
+    }
+  }
+
+  @keyframes aottg2-spinner-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .aottg2-skeleton {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(90deg, hsl(var(--muted)) 0%, hsl(var(--muted-foreground) / 0.18) 50%, hsl(var(--muted)) 100%);
+    background-size: 200% 100%;
+    animation: aottg2-skeleton-shimmer 1.4s cubic-bezier(0.2, 0, 0, 1) infinite;
+  }
+
+  .aottg2-spinner {
+    animation: aottg2-spinner-spin 700ms linear infinite;
+  }
+
   .aottg2-brush-button {
     position: relative;
     isolation: isolate;
@@ -239,6 +266,10 @@
     --aottg2-texture-bg: hsl(var(--primary));
   }
 
+  .aottg2-texture-destructive {
+    --aottg2-texture-bg: hsl(var(--destructive));
+  }
+
   .aottg2-texture-secondary {
     --aottg2-texture-bg: hsl(var(--secondary));
   }
@@ -249,6 +280,129 @@
 
   .aottg2-texture-muted {
     --aottg2-texture-bg: hsl(var(--muted));
+  }
+
+  .aottg2-dialog-content {
+    --aottg2-dialog-title-bg: hsl(var(--primary));
+    --aottg2-dialog-title-fg: hsl(var(--primary-foreground));
+  }
+
+  .aottg2-dialog-content[data-variant="destructive"] {
+    --aottg2-dialog-title-bg: hsl(var(--destructive));
+    --aottg2-dialog-title-fg: hsl(var(--destructive-foreground));
+  }
+
+  .aottg2-dialog-title-bar {
+    --aottg2-texture-bg: var(--aottg2-dialog-title-bg);
+    color: var(--aottg2-dialog-title-fg);
+  }
+
+  .aottg2-dialog-close {
+    color: var(--aottg2-dialog-title-fg);
+  }
+
+  .aottg2-toast {
+    --aottg2-toast-accent: hsl(var(--muted-foreground));
+    --aottg2-texture-bg: hsl(var(--popover));
+    background: var(--aottg2-texture-bg) !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    color: hsl(var(--popover-foreground)) !important;
+    box-shadow:
+      inset 4px 0 0 var(--aottg2-toast-accent),
+      0 18px 45px rgb(0 0 0 / 0.28),
+      0 2px 0 rgb(255 255 255 / 0.06) inset !important;
+    transition-property: transform, opacity, filter !important;
+    transition-duration: 180ms !important;
+    transition-timing-function: cubic-bezier(0.2, 0, 0, 1) !important;
+  }
+
+  .aottg2-toast-loading,
+  .aottg2-toast-default {
+    --aottg2-toast-accent: hsl(var(--muted-foreground));
+  }
+
+  .aottg2-toast-success,
+  .aottg2-toast[data-type="success"] {
+    --aottg2-toast-accent: rgb(22 163 74);
+  }
+
+  .aottg2-toast-error,
+  .aottg2-toast[data-type="error"] {
+    --aottg2-toast-accent: rgb(220 38 38);
+  }
+
+  .aottg2-toast-warning,
+  .aottg2-toast[data-type="warning"] {
+    --aottg2-toast-accent: rgb(217 119 6);
+  }
+
+  .aottg2-toast-info,
+  .aottg2-toast[data-type="info"] {
+    --aottg2-toast-accent: rgb(37 99 235);
+  }
+
+  .aottg2-toast-title {
+    color: var(--aottg2-toast-accent) !important;
+    font-family: "Primary", Impact, sans-serif !important;
+    font-size: 1rem !important;
+    line-height: 1 !important;
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+
+  .aottg2-toast-description {
+    color: hsl(var(--muted-foreground)) !important;
+    text-wrap: pretty;
+  }
+
+  .aottg2-toast-icon {
+    color: var(--aottg2-toast-accent) !important;
+  }
+
+  .aottg2-toast-action,
+  .aottg2-toast-cancel {
+    border: 0 !important;
+    border-radius: 0 !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+  }
+
+  .aottg2-toast-action {
+    background: var(--aottg2-toast-accent) !important;
+    color: hsl(var(--primary-foreground)) !important;
+  }
+
+  .aottg2-toast-cancel {
+    background: hsl(var(--muted)) !important;
+    color: hsl(var(--foreground)) !important;
+  }
+
+  .aottg2-toast-close,
+  .aottg2-toast [data-close-button] {
+    top: 8px !important;
+    right: 8px !important;
+    left: auto !important;
+    width: 24px !important;
+    height: 24px !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    color: hsl(var(--popover-foreground)) !important;
+    opacity: 0.75;
+    transform: none !important;
+    transition: transform 150ms ease-out, opacity 150ms ease-out !important;
+  }
+
+  .aottg2-toast-close:hover,
+  .aottg2-toast [data-close-button]:hover {
+    opacity: 1;
+    transform: scale(1.1) !important;
+  }
+
+  .aottg2-toast-close:active,
+  .aottg2-toast [data-close-button]:active {
+    transform: scale(0.96) !important;
   }
 
   .aottg2-texture > * {
@@ -591,6 +745,8 @@
 
   @media (prefers-reduced-motion: reduce) {
     .aottg2-brush-button::before,
+    .aottg2-skeleton,
+    .aottg2-spinner,
     .aottg2-overlay,
     .aottg2-pop-content,
     .aottg2-dialog-content,

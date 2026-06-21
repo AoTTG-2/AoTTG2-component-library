@@ -13,7 +13,7 @@ export function SearchInput({ className, value, onClear, ...props }: SearchInput
 
   return (
     <div className={cn("relative w-full max-w-sm", className)}>
-      <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white/70" />
+      <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
       <Input className="pl-9 pr-10" value={value} {...props} />
       <AnimatePresence initial={false}>
         {hasValue && onClear ? (
@@ -24,7 +24,7 @@ export function SearchInput({ className, value, onClear, ...props }: SearchInput
             exit={{ opacity: 0, scale: 0.25, filter: "blur(4px)" }}
             transition={{ type: "spring", duration: 0.3, bounce: 0 }}
           >
-            <Button type="button" variant="ghost" size="icon" className="h-10 w-10 text-white hover:bg-white/10" onClick={onClear}>
+            <Button type="button" variant="ghost" size="icon" className="h-10 w-10 text-muted-foreground hover:bg-foreground/10 hover:text-foreground" onClick={onClear}>
               <X className="h-4 w-4" />
               <span className="sr-only">Clear search</span>
             </Button>

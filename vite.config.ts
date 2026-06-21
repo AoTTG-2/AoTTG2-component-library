@@ -36,6 +36,7 @@ export default defineConfig({
         "cmdk",
         "lucide-react",
         "motion/react",
+        "sonner",
         "tailwind-merge",
       ],
     },
