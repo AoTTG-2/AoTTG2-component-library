@@ -51,7 +51,7 @@ export function Navbar({ items = defaultItems, logo = "navbar", logoText, fixed 
 
   return (
     <nav className={cn(fixed && "fixed top-0", "z-50 w-full", className)}>
-      <div className="relative flex h-14 w-full items-center justify-between overflow-hidden px-4 shadow-lg md:h-16 md:px-8">
+      <div className="relative flex h-14 w-full items-center justify-between overflow-hidden px-4 shadow-lg lg:h-16 lg:px-8">
         <div
           aria-hidden="true"
           className="absolute inset-0 bg-repeat-x dark:hidden"
@@ -64,24 +64,24 @@ export function Navbar({ items = defaultItems, logo = "navbar", logoText, fixed 
         />
         <button type="button" onClick={onLogoClick} className="relative z-10 min-w-0 shrink-0" aria-label="AoTTG 2 home">
           {logo === "text" ? (
-            <span className="aottg2-text-logo font-primary text-lg leading-none tracking-wide sm:text-xl md:text-2xl">
+            <span className="aottg2-text-logo font-primary text-lg leading-none tracking-wide sm:text-xl lg:text-2xl">
               <span className="aottg2-text-logo-part text-foreground" data-text="AoTTG">AoTTG</span>
               <span className="aottg2-text-logo-part text-primary" data-text={textLogo}>{textLogo}</span>
             </span>
           ) : logo === "navbar" ? (
             <>
-              <img src={NavbarLogo} className="h-7 w-auto object-contain dark:hidden md:h-10" alt="AoTTG 2" decoding="async" />
-              <img src={LogoLight} className="hidden h-7 w-auto object-contain dark:block md:h-10" alt="AoTTG 2" decoding="async" />
+              <img src={NavbarLogo} className="h-7 w-auto object-contain dark:hidden lg:h-10" alt="AoTTG 2" decoding="async" />
+              <img src={LogoLight} className="hidden h-7 w-auto object-contain dark:block lg:h-10" alt="AoTTG 2" decoding="async" />
             </>
           ) : (
-            <img src={logoSrc} className="h-7 w-auto object-contain md:h-10" alt="AoTTG 2" decoding="async" />
+            <img src={logoSrc} className="h-7 w-auto object-contain lg:h-10" alt="AoTTG 2" decoding="async" />
           )}
         </button>
 
         <button
           type="button"
           onClick={() => setOpen((value) => !value)}
-          className="relative z-10 p-2 font-primary text-2xl leading-none text-foreground md:hidden"
+          className="relative z-10 p-2 font-primary text-2xl leading-none text-foreground lg:hidden"
           aria-label={open ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={open}
           aria-controls="aottg2-navbar-mobile-menu"
@@ -89,7 +89,7 @@ export function Navbar({ items = defaultItems, logo = "navbar", logoText, fixed 
           {open ? "×" : "☰"}
         </button>
 
-        <div className="relative z-10 hidden flex-row gap-6 font-primary text-foreground md:flex">
+        <div className="relative z-10 hidden flex-row gap-6 font-primary text-foreground lg:flex">
           {items.map((item, index) =>
             item.href ? (
               <a key={index} href={item.href} onClick={() => selectItem(item)} className={cn("transition-colors hover:text-primary", item.active && "text-primary")}>
@@ -105,7 +105,7 @@ export function Navbar({ items = defaultItems, logo = "navbar", logoText, fixed 
       </div>
 
       {open ? (
-        <div id="aottg2-navbar-mobile-menu" className="grid border-t border-border bg-background font-primary text-foreground shadow-lg md:hidden">
+        <div id="aottg2-navbar-mobile-menu" className="grid border-t border-border bg-background font-primary text-foreground shadow-lg lg:hidden">
           {items.map((item, index) =>
             item.href ? (
               <a key={index} href={item.href} onClick={() => selectItem(item)} className="p-4 text-left transition-colors hover:bg-accent hover:text-accent-foreground">
