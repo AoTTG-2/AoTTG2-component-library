@@ -24,7 +24,7 @@ Or use the class directly:
 ## Storybook themes
 
 Use the Storybook toolbar to switch any story between `Light`, `Dark`, and `Light + Dark` side-by-side.
-Use the Palette toolbar to switch between `Website` and `Workshop` palettes.
+Use the Palette toolbar to switch between `Website` and `Workshop` palettes. Workshop uses cyan primary + slate secondary.
 
 ## Scripts
 

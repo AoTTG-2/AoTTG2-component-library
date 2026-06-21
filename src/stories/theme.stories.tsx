@@ -15,7 +15,7 @@ function Sample() {
       <Card className="max-w-md">
         <CardHeader>
           <CardTitle>Theme Check</CardTitle>
-          <CardDescription>Website keeps red primary. Workshop swaps primary to cyan and keeps purple secondary.</CardDescription>
+          <CardDescription>Website keeps red primary/purple secondary. Workshop uses cyan primary/slate secondary.</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="flex flex-wrap gap-2">

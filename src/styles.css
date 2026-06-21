@@ -78,6 +78,8 @@
   .aottg2-theme[data-theme="light"][data-palette="workshop"] {
     --primary: 196 78% 61%;
     --primary-foreground: 0 0% 7%;
+    --secondary: 215 19% 35%;
+    --secondary-foreground: 0 0% 100%;
     --accent: 196 78% 61%;
     --accent-foreground: 0 0% 7%;
     --ring: 196 78% 61%;
@@ -87,6 +89,8 @@
   .aottg2-theme[data-theme="dark"][data-palette="workshop"] {
     --primary: 196 78% 61%;
     --primary-foreground: 0 0% 7%;
+    --secondary: 215 19% 35%;
+    --secondary-foreground: 0 0% 100%;
     --accent: 196 78% 61%;
     --accent-foreground: 0 0% 7%;
     --ring: 196 78% 61%;
