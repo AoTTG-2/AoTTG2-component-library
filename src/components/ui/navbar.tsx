@@ -53,7 +53,7 @@ export function Navbar({ items = defaultItems, logo = "navbar", fixed = false, o
         style={{ backgroundImage: `url(${NavbarTexture})`, backgroundRepeat: "repeat-x", backgroundSize: "auto 100%", backgroundPosition: "center" }}
       >
         <button type="button" onClick={onLogoClick} className="shrink-0" aria-label="AoTTG 2 home">
-          <img src={logoSrc} className={cn("h-7 w-auto object-contain md:h-10", logo !== "navbar" && "h-10 md:h-12")} alt="AoTTG 2" decoding="async" />
+          <img src={logoSrc} className="h-7 w-auto object-contain md:h-10" alt="AoTTG 2" decoding="async" />
         </button>
 
         <button type="button" onClick={() => setOpen((value) => !value)} className="font-primary text-2xl text-black md:hidden" aria-label={open ? "Close navigation menu" : "Open navigation menu"} aria-expanded={open}>

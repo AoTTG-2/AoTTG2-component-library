@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Aottg2LogoDark, Aottg2LogoLight, Aottg2NavbarLogo, Navbar } from "@/index";
+import { Aottg2LogoLight, Aottg2NavbarLogo, Navbar } from "@/index";
 
 const meta = {
   title: "Components/Navbar",
@@ -36,14 +36,16 @@ export const LogoVariants: Story = {
   render: () => (
     <div className="grid gap-6">
       <Navbar logo="navbar" />
-      <Navbar logo="dark" />
       <div className="bg-neutral-950">
         <Navbar logo="light" />
       </div>
-      <div className="grid grid-cols-3 items-center gap-4 rounded-none border bg-card p-4">
-        <img src={Aottg2NavbarLogo} alt="AoTTG 2 navbar logo" className="h-12 w-auto" />
-        <img src={Aottg2LogoDark} alt="AoTTG 2 dark logo" className="h-20 w-auto" />
-        <div className="bg-neutral-950 p-3"><img src={Aottg2LogoLight} alt="AoTTG 2 light logo" className="h-20 w-auto" /></div>
+      <div className="grid grid-cols-2 items-center gap-4 rounded-none border bg-card p-4">
+        <div className="flex h-28 w-full items-center justify-center">
+          <img src={Aottg2NavbarLogo} alt="AoTTG 2 navbar logo" className="h-20 w-80 object-contain" />
+        </div>
+        <div className="flex h-28 w-full items-center justify-center bg-neutral-950 p-3">
+          <img src={Aottg2LogoLight} alt="AoTTG 2 light logo" className="h-20 w-80 object-contain" />
+        </div>
       </div>
     </div>
   ),
