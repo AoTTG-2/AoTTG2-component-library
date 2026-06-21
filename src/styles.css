@@ -291,16 +291,18 @@
 
   .aottg2-textured-text {
     --aottg2-textured-text-from: hsl(var(--primary));
-    --aottg2-textured-text-to: color-mix(in oklch, hsl(var(--primary)) 68%, black 32%);
-    --aottg2-textured-text-noise-opacity: 0.38;
+    --aottg2-textured-text-shine: color-mix(in oklch, hsl(var(--primary)) 78%, white 22%);
+    --aottg2-textured-text-to: color-mix(in oklch, hsl(var(--primary)) 86%, black 14%);
+    --aottg2-textured-text-noise-opacity: 0.32;
     --aottg2-textured-text-noise-size: 72px;
     position: relative;
     display: inline-block;
     color: var(--aottg2-textured-text-from);
-    background-image: linear-gradient(135deg, var(--aottg2-textured-text-from), var(--aottg2-textured-text-to));
+    background-image: linear-gradient(135deg, var(--aottg2-textured-text-shine) 0%, var(--aottg2-textured-text-from) 45%, var(--aottg2-textured-text-to) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 0.28em hsl(var(--primary) / 0.45));
   }
 
   .aottg2-textured-text::after {
