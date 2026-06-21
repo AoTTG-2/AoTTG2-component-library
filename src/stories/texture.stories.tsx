@@ -88,7 +88,7 @@ function TextureDemo({ onChange, ...args }: TextureDemoViewProps) {
       <div>
         <h1 className="font-primary text-4xl uppercase text-primary">Texture Utility</h1>
         <p className="max-w-2xl text-sm text-muted-foreground">
-          CSS-Tricks style static SVG turbulence noise: fine noise on top, larger random grunge underneath. Light mode darkens the noise layer for visibility.
+          CSS-Tricks style static SVG turbulence noise: fine noise on top, larger random grunge underneath. Light mode uses multiply on noise/grunge so it stays dark enough to see.
         </p>
       </div>
 

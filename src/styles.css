@@ -214,6 +214,7 @@
     --aottg2-texture-noise-size: 130px;
     --aottg2-texture-noise-contrast: 400%;
     --aottg2-texture-noise-blend: multiply;
+    --aottg2-texture-grunge-blend: multiply;
     --aottg2-texture-grunge-opacity: 0.22;
     --aottg2-texture-grunge-size: 1140px;
     --aottg2-texture-grunge-contrast: 310%;
@@ -243,7 +244,7 @@
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.018 .032' numOctaves='5' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E");
     background-size: var(--aottg2-texture-grunge-size) var(--aottg2-texture-grunge-size);
     filter: contrast(var(--aottg2-texture-grunge-contrast)) brightness(var(--aottg2-texture-grunge-brightness));
-    mix-blend-mode: var(--aottg2-texture-blend);
+    mix-blend-mode: var(--aottg2-texture-grunge-blend);
     opacity: var(--aottg2-texture-grunge-opacity);
   }
 
@@ -258,6 +259,7 @@
   .dark .aottg2-texture,
   [data-theme="dark"] .aottg2-texture {
     --aottg2-texture-noise-blend: overlay;
+    --aottg2-texture-grunge-blend: var(--aottg2-texture-blend);
   }
 
   .aottg2-text-logo {
