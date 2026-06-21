@@ -6,10 +6,12 @@ import { Button, Card, CardContent, CardHeader, CardTitle, Navbar } from "@/inde
 type TextureDemoProps = {
   background: string;
   noiseOpacity: number;
-  grungeOpacity: number;
-  grainSize: number;
-  displacement: number;
+  noiseSize: number;
   noiseContrast: number;
+  grungeOpacity: number;
+  grungeSize: number;
+  grungeContrast: number;
+  grungeBrightness: number;
   blendMode: CSSProperties["mixBlendMode"];
 };
 
@@ -19,20 +21,22 @@ type TextureDemoViewProps = TextureDemoProps & {
 
 const blendModes = ["normal", "multiply", "screen", "overlay", "soft-light", "hard-light", "color-burn"] as const;
 
-function textureStyle({ background, noiseOpacity, grungeOpacity, grainSize, displacement, noiseContrast, blendMode }: TextureDemoProps) {
+function textureStyle({ background, noiseOpacity, noiseSize, noiseContrast, grungeOpacity, grungeSize, grungeContrast, grungeBrightness, blendMode }: TextureDemoProps) {
   return {
     "--aottg2-texture-bg": background,
     "--aottg2-texture-noise-opacity": String(noiseOpacity),
-    "--aottg2-texture-grunge-opacity": String(grungeOpacity),
-    "--aottg2-texture-size": `${grainSize}px`,
-    "--aottg2-texture-displacement": `${displacement}px`,
+    "--aottg2-texture-noise-size": `${noiseSize}px`,
     "--aottg2-texture-noise-contrast": `${noiseContrast}%`,
+    "--aottg2-texture-grunge-opacity": String(grungeOpacity),
+    "--aottg2-texture-grunge-size": `${grungeSize}px`,
+    "--aottg2-texture-grunge-contrast": `${grungeContrast}%`,
+    "--aottg2-texture-grunge-brightness": `${grungeBrightness}%`,
     "--aottg2-texture-blend": blendMode,
   } as CSSProperties;
 }
 
 function cssValues(args: TextureDemoProps) {
-  return `--aottg2-texture-bg: ${args.background};\n--aottg2-texture-noise-opacity: ${args.noiseOpacity};\n--aottg2-texture-grunge-opacity: ${args.grungeOpacity};\n--aottg2-texture-size: ${args.grainSize}px;\n--aottg2-texture-displacement: ${args.displacement}px;\n--aottg2-texture-noise-contrast: ${args.noiseContrast}%;\n--aottg2-texture-blend: ${args.blendMode};`;
+  return `--aottg2-texture-bg: ${args.background};\n--aottg2-texture-noise-opacity: ${args.noiseOpacity};\n--aottg2-texture-noise-size: ${args.noiseSize}px;\n--aottg2-texture-noise-contrast: ${args.noiseContrast}%;\n--aottg2-texture-grunge-opacity: ${args.grungeOpacity};\n--aottg2-texture-grunge-size: ${args.grungeSize}px;\n--aottg2-texture-grunge-contrast: ${args.grungeContrast}%;\n--aottg2-texture-grunge-brightness: ${args.grungeBrightness}%;\n--aottg2-texture-blend: ${args.blendMode};`;
 }
 
 function Slider({ label, value, min, max, step, onChange }: { label: string; value: number; min: number; max: number; step: number; onChange: (value: number) => void }) {
@@ -56,11 +60,13 @@ function TextureControls({ args, set }: { args: TextureDemoProps; set: (patch: P
             Background
             <input type="color" value={args.background.startsWith("#") ? args.background : "#f5f5f5"} onChange={(event) => set({ background: event.target.value })} />
           </label>
-          <Slider label="Noise opacity" value={args.noiseOpacity} min={0} max={0.8} step={0.01} onChange={(noiseOpacity) => set({ noiseOpacity })} />
-          <Slider label="Grunge opacity" value={args.grungeOpacity} min={0} max={1} step={0.01} onChange={(grungeOpacity) => set({ grungeOpacity })} />
-          <Slider label="Grain size" value={args.grainSize} min={24} max={180} step={2} onChange={(grainSize) => set({ grainSize })} />
-          <Slider label="Displacement" value={args.displacement} min={0} max={40} step={1} onChange={(displacement) => set({ displacement })} />
-          <Slider label="Noise contrast" value={args.noiseContrast} min={100} max={320} step={5} onChange={(noiseContrast) => set({ noiseContrast })} />
+          <Slider label="Static noise opacity" value={args.noiseOpacity} min={0} max={0.9} step={0.01} onChange={(noiseOpacity) => set({ noiseOpacity })} />
+          <Slider label="Static noise size" value={args.noiseSize} min={24} max={180} step={2} onChange={(noiseSize) => set({ noiseSize })} />
+          <Slider label="Static noise contrast" value={args.noiseContrast} min={100} max={400} step={5} onChange={(noiseContrast) => set({ noiseContrast })} />
+          <Slider label="Big grunge opacity" value={args.grungeOpacity} min={0} max={0.9} step={0.01} onChange={(grungeOpacity) => set({ grungeOpacity })} />
+          <Slider label="Big grunge size" value={args.grungeSize} min={160} max={1200} step={20} onChange={(grungeSize) => set({ grungeSize })} />
+          <Slider label="Big grunge contrast" value={args.grungeContrast} min={100} max={500} step={10} onChange={(grungeContrast) => set({ grungeContrast })} />
+          <Slider label="Big grunge brightness" value={args.grungeBrightness} min={50} max={300} step={5} onChange={(grungeBrightness) => set({ grungeBrightness })} />
           <label className="grid gap-1 text-xs uppercase text-muted-foreground">
             Blend mode
             <select className="border bg-background p-2 text-foreground" value={args.blendMode} onChange={(event) => set({ blendMode: event.target.value as TextureDemoProps["blendMode"] })}>
@@ -82,15 +88,15 @@ function TextureDemo({ onChange, ...args }: TextureDemoViewProps) {
       <div>
         <h1 className="font-primary text-4xl uppercase text-primary">Texture Utility</h1>
         <p className="max-w-2xl text-sm text-muted-foreground">
-          Harsher CSS grain/grunge texture. Use this panel or Storybook Controls, then send the CSS values shown below.
+          CSS-Tricks style static SVG turbulence noise: fine noise on top, larger random grunge underneath. Tune, then send the CSS values.
         </p>
       </div>
 
       <TextureControls args={args} set={(patch) => onChange?.(patch)} />
 
       <div className="aottg2-texture h-40 border p-6 shadow-lg" style={style}>
-        <div className="font-primary text-3xl uppercase">Any background color</div>
-        <p className="max-w-lg text-sm">CSS vars + SVG turbulence grain. No bundled texture image.</p>
+        <div className="font-primary text-3xl uppercase">Static noise + grunge</div>
+        <p className="max-w-lg text-sm">No circle gradients. Just noise layers, contrast/brightness, and blending.</p>
       </div>
 
       <Navbar logo="text" logoText="workshop" className="border" />
@@ -125,20 +131,24 @@ const meta = {
   parameters: { layout: "fullscreen" },
   argTypes: {
     background: { control: "color" },
-    noiseOpacity: { control: { type: "range", min: 0, max: 0.8, step: 0.01 } },
-    grungeOpacity: { control: { type: "range", min: 0, max: 1, step: 0.01 } },
-    grainSize: { control: { type: "range", min: 24, max: 180, step: 2 } },
-    displacement: { control: { type: "range", min: 0, max: 40, step: 1 } },
-    noiseContrast: { control: { type: "range", min: 100, max: 320, step: 5 } },
+    noiseOpacity: { control: { type: "range", min: 0, max: 0.9, step: 0.01 } },
+    noiseSize: { control: { type: "range", min: 24, max: 180, step: 2 } },
+    noiseContrast: { control: { type: "range", min: 100, max: 400, step: 5 } },
+    grungeOpacity: { control: { type: "range", min: 0, max: 0.9, step: 0.01 } },
+    grungeSize: { control: { type: "range", min: 160, max: 1200, step: 20 } },
+    grungeContrast: { control: { type: "range", min: 100, max: 500, step: 10 } },
+    grungeBrightness: { control: { type: "range", min: 50, max: 300, step: 5 } },
     blendMode: { control: "select", options: blendModes },
   },
   args: {
     background: "hsl(0 0% 96%)",
-    noiseOpacity: 0.28,
-    grungeOpacity: 0.34,
-    grainSize: 48,
-    displacement: 12,
-    noiseContrast: 220,
+    noiseOpacity: 0.34,
+    noiseSize: 72,
+    noiseContrast: 190,
+    grungeOpacity: 0.28,
+    grungeSize: 560,
+    grungeContrast: 320,
+    grungeBrightness: 130,
     blendMode: "overlay",
   },
 } satisfies Meta<typeof TextureDemo>;
@@ -154,11 +164,13 @@ export const Dark: Story = {
   render: TextureStory,
   args: {
     background: "hsl(0 0% 7%)",
-    noiseOpacity: 0.34,
-    grungeOpacity: 0.3,
-    grainSize: 44,
-    displacement: 10,
-    noiseContrast: 240,
+    noiseOpacity: 0.38,
+    noiseSize: 64,
+    noiseContrast: 220,
+    grungeOpacity: 0.32,
+    grungeSize: 620,
+    grungeContrast: 350,
+    grungeBrightness: 120,
     blendMode: "overlay",
   },
 };
@@ -167,11 +179,13 @@ export const PaletteColors: Story = {
   render: TextureStory,
   args: {
     background: "hsl(196 78% 61%)",
-    noiseOpacity: 0.24,
-    grungeOpacity: 0.28,
-    grainSize: 50,
-    displacement: 10,
-    noiseContrast: 210,
+    noiseOpacity: 0.28,
+    noiseSize: 76,
+    noiseContrast: 180,
+    grungeOpacity: 0.24,
+    grungeSize: 540,
+    grungeContrast: 280,
+    grungeBrightness: 135,
     blendMode: "overlay",
   },
 };
