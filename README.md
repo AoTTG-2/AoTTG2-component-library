@@ -21,6 +21,10 @@ Or use the class directly:
 </div>
 ```
 
+## Storybook themes
+
+Use the Storybook toolbar to switch any story between `Light`, `Dark`, and `Light + Dark` side-by-side.
+
 ## Scripts
 
 ```bash
