@@ -9,14 +9,14 @@ import "@aottg2/ui/styles.css";
 import { Aottg2Theme, Button } from "@aottg2/ui";
 
 export function Example() {
-  return <Aottg2Theme><Button variant="brush">Start</Button></Aottg2Theme>;
+  return <Aottg2Theme theme="light"><Button variant="brush">Start</Button></Aottg2Theme>;
 }
 ```
 
 Or use the class directly:
 
 ```tsx
-<div className="aottg2-theme">
+<div className="aottg2-theme dark">
   <App />
 </div>
 ```

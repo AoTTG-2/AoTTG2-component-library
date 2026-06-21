@@ -24,7 +24,9 @@
 
 @layer base {
   :root,
-  .aottg2-theme {
+  .aottg2-theme,
+  .aottg2-theme.light,
+  .aottg2-theme[data-theme="light"] {
     --background: 0 0% 96%;
     --foreground: 0 0% 8%;
     --card: 0 0% 94%;
@@ -47,10 +49,41 @@
     --radius: 0;
   }
 
+  .dark,
+  .aottg2-theme.dark,
+  .aottg2-theme[data-theme="dark"] {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 96%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 96%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 96%;
+    --primary: 350 50% 47%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 255 30% 55%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 16%;
+    --muted-foreground: 0 0% 70%;
+    --accent: 350 50% 47%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 22%;
+    --input: 0 0% 20%;
+    --ring: 350 53% 56%;
+    --radius: 0;
+  }
+
   .aottg2-theme {
     background: hsl(var(--background));
     color: hsl(var(--foreground));
+    color-scheme: light;
     font-family: "Barlow", system-ui, sans-serif;
+  }
+
+  .aottg2-theme.dark,
+  .aottg2-theme[data-theme="dark"] {
+    color-scheme: dark;
   }
 
   .aottg2-theme * {
