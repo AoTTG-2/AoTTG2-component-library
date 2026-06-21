@@ -88,7 +88,7 @@ function TextureDemo({ onChange, ...args }: TextureDemoViewProps) {
       <div>
         <h1 className="font-primary text-4xl uppercase text-primary">Texture Utility</h1>
         <p className="max-w-2xl text-sm text-muted-foreground">
-          CSS-Tricks style static SVG turbulence noise: fine noise on top, larger random grunge underneath. Tune, then send the CSS values.
+          CSS-Tricks style static SVG turbulence noise: fine noise on top, larger random grunge underneath. Light mode darkens the noise layer for visibility.
         </p>
       </div>
 
@@ -142,13 +142,13 @@ const meta = {
   },
   args: {
     background: "hsl(0 0% 96%)",
-    noiseOpacity: 0.34,
-    noiseSize: 72,
-    noiseContrast: 190,
-    grungeOpacity: 0.28,
-    grungeSize: 560,
-    grungeContrast: 320,
-    grungeBrightness: 130,
+    noiseOpacity: 0.56,
+    noiseSize: 130,
+    noiseContrast: 400,
+    grungeOpacity: 0.22,
+    grungeSize: 1140,
+    grungeContrast: 310,
+    grungeBrightness: 95,
     blendMode: "overlay",
   },
 } satisfies Meta<typeof TextureDemo>;
@@ -164,13 +164,13 @@ export const Dark: Story = {
   render: TextureStory,
   args: {
     background: "hsl(0 0% 7%)",
-    noiseOpacity: 0.38,
-    noiseSize: 64,
-    noiseContrast: 220,
-    grungeOpacity: 0.32,
-    grungeSize: 620,
-    grungeContrast: 350,
-    grungeBrightness: 120,
+    noiseOpacity: 0.56,
+    noiseSize: 130,
+    noiseContrast: 400,
+    grungeOpacity: 0.22,
+    grungeSize: 1140,
+    grungeContrast: 310,
+    grungeBrightness: 95,
     blendMode: "overlay",
   },
 };
@@ -179,13 +179,13 @@ export const PaletteColors: Story = {
   render: TextureStory,
   args: {
     background: "hsl(196 78% 61%)",
-    noiseOpacity: 0.28,
-    noiseSize: 76,
-    noiseContrast: 180,
-    grungeOpacity: 0.24,
-    grungeSize: 540,
-    grungeContrast: 280,
-    grungeBrightness: 135,
+    noiseOpacity: 0.56,
+    noiseSize: 130,
+    noiseContrast: 400,
+    grungeOpacity: 0.22,
+    grungeSize: 1140,
+    grungeContrast: 310,
+    grungeBrightness: 95,
     blendMode: "overlay",
   },
 };
