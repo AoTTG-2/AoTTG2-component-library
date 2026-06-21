@@ -54,7 +54,7 @@ export function Navbar({ items = defaultItems, logo = "navbar", logoText, fixed 
           {logo === "text" ? (
             <span className="aottg2-text-logo font-primary text-lg leading-none tracking-wide sm:text-xl lg:text-2xl">
               <span className="aottg2-text-logo-part text-foreground" data-text="AoTTG">AoTTG</span>
-              <span className="aottg2-text-logo-part text-primary" data-text={textLogo}>{textLogo}</span>
+              <span className="aottg2-text-logo-part aottg2-textured-text text-primary" data-text={textLogo}>{textLogo}</span>
             </span>
           ) : logo === "navbar" ? (
             <>
