@@ -18,7 +18,7 @@ export function SearchInput({ className, value, onClear, ...props }: SearchInput
       <AnimatePresence initial={false}>
         {hasValue && onClear ? (
           <motion.div
-            className="absolute right-1 top-1"
+            className="absolute right-0 top-0"
             initial={{ opacity: 0, scale: 0.25, filter: "blur(2px)" }}
             animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
             exit={{ opacity: 0, scale: 0.25, filter: "blur(2px)" }}
