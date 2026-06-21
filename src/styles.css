@@ -210,16 +210,16 @@
 
   .aottg2-texture {
     --aottg2-texture-bg: hsl(var(--background));
-    --aottg2-texture-noise-opacity: 0.56;
-    --aottg2-texture-noise-size: 130px;
+    --aottg2-texture-noise-opacity: 0.9;
+    --aottg2-texture-noise-size: 176px;
     --aottg2-texture-noise-contrast: 400%;
-    --aottg2-texture-noise-blend: multiply;
-    --aottg2-texture-grunge-blend: multiply;
-    --aottg2-texture-grunge-opacity: 0.22;
+    --aottg2-texture-noise-blend: var(--aottg2-texture-blend);
+    --aottg2-texture-grunge-blend: var(--aottg2-texture-blend);
+    --aottg2-texture-grunge-opacity: 0.64;
     --aottg2-texture-grunge-size: 1140px;
-    --aottg2-texture-grunge-contrast: 310%;
-    --aottg2-texture-grunge-brightness: 95%;
-    --aottg2-texture-blend: overlay;
+    --aottg2-texture-grunge-contrast: 380%;
+    --aottg2-texture-grunge-brightness: 50%;
+    --aottg2-texture-blend: multiply;
     position: relative;
     isolation: isolate;
     overflow: hidden;
@@ -254,12 +254,6 @@
     filter: contrast(var(--aottg2-texture-noise-contrast));
     mix-blend-mode: var(--aottg2-texture-noise-blend);
     opacity: var(--aottg2-texture-noise-opacity);
-  }
-
-  .dark .aottg2-texture,
-  [data-theme="dark"] .aottg2-texture {
-    --aottg2-texture-noise-blend: overlay;
-    --aottg2-texture-grunge-blend: var(--aottg2-texture-blend);
   }
 
   .aottg2-text-logo {
