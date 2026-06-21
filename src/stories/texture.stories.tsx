@@ -1,7 +1,7 @@
 import type { CSSProperties } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useArgs } from "@storybook/preview-api";
-import { Button, Card, CardContent, CardHeader, CardTitle, Navbar } from "@/index";
+import { Badge, Button, Card, CardContent, CardHeader, CardTitle, Navbar, TexturedSurface } from "@/index";
 
 type TextureDemoProps = {
   background: string;
@@ -100,6 +100,12 @@ function TextureDemo({ onChange, ...args }: TextureDemoViewProps) {
       </div>
 
       <Navbar logo="text" logoText="workshop" className="border" />
+
+      <div className="flex flex-wrap items-center gap-3">
+        <Button variant="textured">Textured button</Button>
+        <Badge variant="textured">Textured pill</Badge>
+        <TexturedSurface tone="secondary" className="border px-4 py-2 text-secondary-foreground">Textured surface helper</TexturedSurface>
+      </div>
 
       <div className="grid gap-4 md:grid-cols-3">
         <Card className="aottg2-texture" style={{ ...style, "--aottg2-texture-bg": "hsl(var(--card))" } as CSSProperties}>

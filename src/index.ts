@@ -25,6 +25,7 @@ export * from "./components/ui/tabs";
 export * from "./components/ui/textarea";
 export * from "./components/ui/tooltip";
 export * from "./components/ui/command";
+export * from "./components/ui/texture";
 export * from "./components/admin/action-menu";
 export * from "./components/admin/confirm-dialog";
 export * from "./components/admin/data-table";

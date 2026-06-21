@@ -226,6 +226,22 @@
     background: var(--aottg2-texture-bg);
   }
 
+  .aottg2-texture-primary {
+    --aottg2-texture-bg: hsl(var(--primary));
+  }
+
+  .aottg2-texture-secondary {
+    --aottg2-texture-bg: hsl(var(--secondary));
+  }
+
+  .aottg2-texture-card {
+    --aottg2-texture-bg: hsl(var(--card));
+  }
+
+  .aottg2-texture-muted {
+    --aottg2-texture-bg: hsl(var(--muted));
+  }
+
   .aottg2-texture > * {
     position: relative;
     z-index: 1;
@@ -291,18 +307,17 @@
 
   .aottg2-textured-text {
     --aottg2-textured-text-from: hsl(var(--primary));
-    --aottg2-textured-text-shine: color-mix(in oklch, hsl(var(--primary)) 78%, white 22%);
-    --aottg2-textured-text-to: color-mix(in oklch, hsl(var(--primary)) 86%, black 14%);
+    --aottg2-textured-text-to: oklch(from hsl(var(--primary)) l calc(c * 1.22) h);
     --aottg2-textured-text-noise-opacity: 0.32;
     --aottg2-textured-text-noise-size: 72px;
     position: relative;
     display: inline-block;
     color: var(--aottg2-textured-text-from);
-    background-image: linear-gradient(135deg, var(--aottg2-textured-text-shine) 0%, var(--aottg2-textured-text-from) 45%, var(--aottg2-textured-text-to) 100%);
+    background-image: linear-gradient(135deg, var(--aottg2-textured-text-from), var(--aottg2-textured-text-to));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 0.28em hsl(var(--primary) / 0.45));
+    text-shadow: none;
   }
 
   .aottg2-textured-text::after {
