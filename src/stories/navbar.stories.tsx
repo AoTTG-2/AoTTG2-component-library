@@ -1,0 +1,50 @@
+import type { Meta, StoryObj } from "@storybook/react";
+import { Aottg2LogoDark, Aottg2LogoLight, Aottg2NavbarLogo, Navbar } from "@/index";
+
+const meta = {
+  title: "Components/Navbar",
+  component: Navbar,
+  parameters: { layout: "fullscreen" },
+} satisfies Meta<typeof Navbar>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const WebsiteLike: Story = {
+  render: () => (
+    <div className="min-h-64 bg-neutral-950 pt-8">
+      <Navbar />
+    </div>
+  ),
+};
+
+export const ActiveItem: Story = {
+  render: () => (
+    <div className="min-h-64 bg-neutral-950 pt-8">
+      <Navbar items={[
+        { label: "DEVBLOG", id: "devblog" },
+        { label: "COMMUNITY", id: "community", active: true },
+        { label: "SUPPORT", id: "support" },
+        { label: "CREDITS", href: "/credits" },
+        { label: "PLAY", id: "home" },
+      ]} />
+    </div>
+  ),
+};
+
+export const LogoVariants: Story = {
+  render: () => (
+    <div className="grid gap-6">
+      <Navbar logo="navbar" />
+      <Navbar logo="dark" />
+      <div className="bg-neutral-950">
+        <Navbar logo="light" />
+      </div>
+      <div className="grid grid-cols-3 items-center gap-4 rounded-none border bg-card p-4">
+        <img src={Aottg2NavbarLogo} alt="AoTTG 2 navbar logo" className="h-12 w-auto" />
+        <img src={Aottg2LogoDark} alt="AoTTG 2 dark logo" className="h-20 w-auto" />
+        <div className="bg-neutral-950 p-3"><img src={Aottg2LogoLight} alt="AoTTG 2 light logo" className="h-20 w-auto" /></div>
+      </div>
+    </div>
+  ),
+};
