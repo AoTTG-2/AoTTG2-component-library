@@ -3,9 +3,18 @@
   "version": "0.1.0",
   "description": "AoTTG2 React component library.",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AoTTG-2/AoTTG2-component-library.git"
+  },
+  "homepage": "https://github.com/AoTTG-2/AoTTG2-component-library#readme",
+  "bugs": {
+    "url": "https://github.com/AoTTG-2/AoTTG2-component-library/issues"
+  },
   "private": false,
   "files": [
-    "dist"
+    "dist",
+    "integration-guide.md"
   ],
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -21,7 +30,8 @@
     "**/*.css"
   ],
   "scripts": {
-    "build": "tsc -p tsconfig.build.json && vite build",
+    "build": "vite build && tsc -p tsconfig.build.json",
+    "prepare": "npm run build",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },

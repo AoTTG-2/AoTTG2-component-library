@@ -2,6 +2,16 @@
 
 Reusable React components for AoTTG2.
 
+## Integration guide
+
+Use this repo directly as the package:
+
+```bash
+npm install github:AoTTG-2/AoTTG2-component-library#v0.1.0
+```
+
+See [integration-guide.md](./integration-guide.md) for Vite React setup, theming, toasts, local development, and release tags.
+
 ## Use
 
 ```tsx
