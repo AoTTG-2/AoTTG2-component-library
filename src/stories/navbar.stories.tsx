@@ -57,3 +57,10 @@ export const TextLogo: Story = {
     </div>
   ),
 };
+
+export const MobileMenu: Story = {
+  render: () => <Navbar logo="text" logoText="workshop" />,
+  parameters: {
+    docs: { description: { story: "Resize the preview below `md` width to see the hamburger menu." } },
+  },
+};

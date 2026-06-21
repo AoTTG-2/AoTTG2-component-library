@@ -1,5 +1,6 @@
 import { useState, type ReactNode } from "react";
-import NavbarTexture from "@/assets/images/bg-light.webp";
+import NavbarLightTexture from "@/assets/images/bg-light.webp";
+import NavbarDarkTexture from "@/assets/images/bg-dark.webp";
 import NavbarLogo from "@/assets/images/aottg2-navbar-logo.webp";
 import LogoDark from "@/assets/images/aottg2-logo-dark.png";
 import LogoLight from "@/assets/images/aottg2-logo-light.webp";
@@ -50,13 +51,20 @@ export function Navbar({ items = defaultItems, logo = "navbar", logoText, fixed 
 
   return (
     <nav className={cn(fixed && "fixed top-0", "z-50 w-full", className)}>
-      <div
-        className="relative flex h-14 w-full items-center justify-between overflow-hidden px-4 shadow-lg md:h-16 md:px-8"
-        style={{ backgroundImage: `url(${NavbarTexture})`, backgroundRepeat: "repeat-x", backgroundSize: "auto 100%", backgroundPosition: "center" }}
-      >
-        <button type="button" onClick={onLogoClick} className="shrink-0" aria-label="AoTTG 2 home">
+      <div className="relative flex h-14 w-full items-center justify-between overflow-hidden px-4 shadow-lg md:h-16 md:px-8">
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-repeat-x dark:hidden"
+          style={{ backgroundImage: `url(${NavbarLightTexture})`, backgroundSize: "auto 100%", backgroundPosition: "center" }}
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 hidden bg-repeat-x dark:block"
+          style={{ backgroundImage: `url(${NavbarDarkTexture})`, backgroundSize: "auto 100%", backgroundPosition: "center" }}
+        />
+        <button type="button" onClick={onLogoClick} className="relative z-10 min-w-0 shrink-0" aria-label="AoTTG 2 home">
           {logo === "text" ? (
-            <span className="aottg2-text-logo font-primary text-xl leading-none tracking-wide md:text-2xl">
+            <span className="aottg2-text-logo font-primary text-lg leading-none tracking-wide sm:text-xl md:text-2xl">
               <span className="aottg2-text-logo-part text-foreground" data-text="AoTTG">AoTTG</span>
               <span className="aottg2-text-logo-part text-primary" data-text={textLogo}>{textLogo}</span>
             </span>
@@ -70,11 +78,18 @@ export function Navbar({ items = defaultItems, logo = "navbar", logoText, fixed 
           )}
         </button>
 
-        <button type="button" onClick={() => setOpen((value) => !value)} className="font-primary text-2xl text-foreground md:hidden" aria-label={open ? "Close navigation menu" : "Open navigation menu"} aria-expanded={open}>
-          ☰
+        <button
+          type="button"
+          onClick={() => setOpen((value) => !value)}
+          className="relative z-10 p-2 font-primary text-2xl leading-none text-foreground md:hidden"
+          aria-label={open ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={open}
+          aria-controls="aottg2-navbar-mobile-menu"
+        >
+          {open ? "×" : "☰"}
         </button>
 
-        <div className="hidden flex-row gap-6 font-primary text-foreground md:flex">
+        <div className="relative z-10 hidden flex-row gap-6 font-primary text-foreground md:flex">
           {items.map((item, index) =>
             item.href ? (
               <a key={index} href={item.href} onClick={() => selectItem(item)} className={cn("transition-colors hover:text-primary", item.active && "text-primary")}>
@@ -90,14 +105,14 @@ export function Navbar({ items = defaultItems, logo = "navbar", logoText, fixed 
       </div>
 
       {open ? (
-        <div className="grid bg-neutral-950 font-primary text-white md:hidden">
+        <div id="aottg2-navbar-mobile-menu" className="grid border-t border-border bg-background font-primary text-foreground shadow-lg md:hidden">
           {items.map((item, index) =>
             item.href ? (
-              <a key={index} href={item.href} onClick={() => selectItem(item)} className="p-4 text-left transition-colors hover:bg-white/10">
+              <a key={index} href={item.href} onClick={() => selectItem(item)} className="p-4 text-left transition-colors hover:bg-accent hover:text-accent-foreground">
                 {item.label}
               </a>
             ) : (
-              <button key={index} type="button" onClick={() => selectItem(item)} className="p-4 text-left transition-colors hover:bg-white/10">
+              <button key={index} type="button" onClick={() => selectItem(item)} className="p-4 text-left transition-colors hover:bg-accent hover:text-accent-foreground">
                 {item.label}
               </button>
             ),
