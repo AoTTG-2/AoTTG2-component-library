@@ -76,16 +76,20 @@
 
   .aottg2-theme.light.aottg2-palette-workshop,
   .aottg2-theme[data-theme="light"][data-palette="workshop"] {
-    --primary: 188 76% 37%;
-    --accent: 188 76% 37%;
-    --ring: 188 76% 44%;
+    --primary: 196 78% 61%;
+    --primary-foreground: 0 0% 7%;
+    --accent: 196 78% 61%;
+    --accent-foreground: 0 0% 7%;
+    --ring: 196 78% 61%;
   }
 
   .aottg2-theme.dark.aottg2-palette-workshop,
   .aottg2-theme[data-theme="dark"][data-palette="workshop"] {
-    --primary: 188 83% 52%;
-    --accent: 188 83% 52%;
-    --ring: 188 83% 58%;
+    --primary: 196 78% 61%;
+    --primary-foreground: 0 0% 7%;
+    --accent: 196 78% 61%;
+    --accent-foreground: 0 0% 7%;
+    --ring: 196 78% 61%;
   }
 
   .aottg2-theme {
