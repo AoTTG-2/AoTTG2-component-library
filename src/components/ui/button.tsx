@@ -19,8 +19,8 @@ const buttonVariants = cva(
         account: "border border-neutral-950/20 bg-neutral-950/5 text-neutral-950 shadow-sm hover:bg-neutral-950/10",
         oauthDiscord: "bg-secondary text-white shadow-sm hover:bg-secondary/90",
         oauthGoogle: "bg-white text-black shadow-sm hover:bg-white/90",
-        brush: "aottg2-brush-button aottg2-brush-button-primary font-primary text-xl text-primary-foreground shadow-none",
-        brushSecondary: "aottg2-brush-button aottg2-brush-button-secondary font-primary text-xl text-secondary-foreground shadow-none",
+        brush: "aottg2-brush-button aottg2-brush-button-primary font-primary text-xl text-white shadow-none",
+        brushSecondary: "aottg2-brush-button aottg2-brush-button-secondary font-primary text-xl text-white shadow-none",
         brushGoogle: "aottg2-brush-button aottg2-brush-button-google font-primary text-xl text-white shadow-none",
       },
       size: {
