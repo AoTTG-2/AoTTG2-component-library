@@ -215,10 +215,10 @@
     --aottg2-texture-noise-contrast: 400%;
     --aottg2-texture-noise-blend: var(--aottg2-texture-blend);
     --aottg2-texture-grunge-blend: var(--aottg2-texture-blend);
-    --aottg2-texture-grunge-opacity: 0.64;
+    --aottg2-texture-grunge-opacity: 0.86;
     --aottg2-texture-grunge-size: 1140px;
-    --aottg2-texture-grunge-contrast: 380%;
-    --aottg2-texture-grunge-brightness: 50%;
+    --aottg2-texture-grunge-contrast: 480%;
+    --aottg2-texture-grunge-brightness: 90%;
     --aottg2-texture-blend: multiply;
     position: relative;
     isolation: isolate;
