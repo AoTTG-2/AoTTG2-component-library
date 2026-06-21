@@ -78,10 +78,10 @@ export function Navbar({ items = defaultItems, logo = "navbar", logoText, fixed 
           <AnimatePresence initial={false} mode="popLayout">
             <motion.span
               key={open ? "close" : "open"}
-              initial={{ opacity: 0, scale: 0.25, filter: "blur(4px)" }}
+              initial={{ opacity: 0, scale: 0.25, filter: "blur(2px)" }}
               animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-              exit={{ opacity: 0, scale: 0.25, filter: "blur(4px)" }}
-              transition={{ type: "spring", duration: 0.3, bounce: 0 }}
+              exit={{ opacity: 0, scale: 0.25, filter: "blur(2px)" }}
+              transition={{ type: "spring", duration: 0.18, bounce: 0 }}
             >
               {open ? "×" : "☰"}
             </motion.span>
@@ -108,10 +108,10 @@ export function Navbar({ items = defaultItems, logo = "navbar", logoText, fixed 
           <motion.div
             id="aottg2-navbar-mobile-menu"
             className="grid border-t border-border bg-background font-primary text-foreground shadow-lg lg:hidden"
-            initial={{ opacity: 0, y: -8, filter: "blur(4px)" }}
+            initial={{ opacity: 0, y: -6, filter: "blur(2px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            exit={{ opacity: 0, y: -12, filter: "blur(4px)" }}
-            transition={{ duration: 0.18, ease: "easeOut" }}
+            exit={{ opacity: 0, y: -8, filter: "blur(2px)" }}
+            transition={{ duration: 0.14, ease: "easeOut" }}
           >
             {items.map((item, index) =>
               item.href ? (

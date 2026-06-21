@@ -312,8 +312,8 @@
       inset 4px 0 0 var(--aottg2-toast-accent),
       0 18px 45px rgb(0 0 0 / 0.28),
       0 2px 0 rgb(255 255 255 / 0.06) inset !important;
-    transition-property: transform, opacity, filter !important;
-    transition-duration: 180ms !important;
+    transition-property: transform, opacity !important;
+    transition-duration: 140ms !important;
     transition-timing-function: cubic-bezier(0.2, 0, 0, 1) !important;
   }
 
@@ -345,7 +345,7 @@
   .aottg2-toast-title {
     color: var(--aottg2-toast-accent) !important;
     font-family: "Primary", Impact, sans-serif !important;
-    font-size: 1rem !important;
+    font-size: 0.875rem !important;
     line-height: 1 !important;
     text-transform: uppercase;
     text-wrap: balance;
@@ -521,7 +521,7 @@
     from {
       opacity: 0;
       transform: translateY(8px) scale(0.98);
-      filter: blur(4px);
+      filter: blur(2px);
     }
     to {
       opacity: 1;
@@ -539,7 +539,7 @@
     to {
       opacity: 0;
       transform: translateY(-12px) scale(0.98);
-      filter: blur(4px);
+      filter: blur(2px);
     }
   }
 
@@ -547,7 +547,7 @@
     from {
       opacity: 0;
       transform: translate(-50%, calc(-50% + 8px)) scale(0.98);
-      filter: blur(4px);
+      filter: blur(2px);
     }
     to {
       opacity: 1;
@@ -565,7 +565,7 @@
     to {
       opacity: 0;
       transform: translate(-50%, calc(-50% - 12px)) scale(0.98);
-      filter: blur(4px);
+      filter: blur(2px);
     }
   }
 
@@ -573,7 +573,7 @@
     from {
       opacity: 0;
       transform: translateY(-8px);
-      filter: blur(4px);
+      filter: blur(2px);
     }
     to {
       opacity: 1;
@@ -591,7 +591,7 @@
     to {
       opacity: 0;
       transform: translateY(-12px);
-      filter: blur(4px);
+      filter: blur(2px);
     }
   }
 
@@ -668,79 +668,79 @@
   }
 
   .aottg2-overlay[data-state="open"] {
-    animation: aottg2-fade-in 180ms ease-out;
+    animation: aottg2-fade-in 120ms ease-out;
   }
 
   .aottg2-overlay[data-state="closed"] {
-    animation: aottg2-fade-out 120ms ease-in;
+    animation: aottg2-fade-out 90ms ease-in;
   }
 
   .aottg2-pop-content[data-state="open"] {
-    animation: aottg2-pop-in 220ms cubic-bezier(0.2, 0, 0, 1);
+    animation: aottg2-pop-in 150ms cubic-bezier(0.2, 0, 0, 1);
   }
 
   .aottg2-pop-content[data-state="closed"] {
-    animation: aottg2-pop-out 150ms ease-in;
+    animation: aottg2-pop-out 100ms ease-in;
   }
 
   .aottg2-dialog-content[data-state="open"] {
-    animation: aottg2-dialog-in 220ms cubic-bezier(0.2, 0, 0, 1);
+    animation: aottg2-dialog-in 160ms cubic-bezier(0.2, 0, 0, 1);
   }
 
   .aottg2-dialog-content[data-state="closed"] {
-    animation: aottg2-dialog-out 150ms ease-in;
+    animation: aottg2-dialog-out 110ms ease-in;
   }
 
   .aottg2-menu-content[data-state="open"] {
-    animation: aottg2-slide-down 180ms cubic-bezier(0.2, 0, 0, 1);
+    animation: aottg2-slide-down 120ms cubic-bezier(0.2, 0, 0, 1);
   }
 
   .aottg2-menu-content[data-state="closed"] {
-    animation: aottg2-slide-up 120ms ease-in;
+    animation: aottg2-slide-up 90ms ease-in;
   }
 
   .aottg2-sheet-content[data-state="open"][data-side="right"] {
-    animation: aottg2-sheet-in-right 220ms cubic-bezier(0.2, 0, 0, 1);
+    animation: aottg2-sheet-in-right 180ms cubic-bezier(0.2, 0, 0, 1);
   }
 
   .aottg2-sheet-content[data-state="closed"][data-side="right"] {
-    animation: aottg2-sheet-out-right 150ms ease-in;
+    animation: aottg2-sheet-out-right 120ms ease-in;
   }
 
   .aottg2-sheet-content[data-state="open"][data-side="left"] {
-    animation: aottg2-sheet-in-left 220ms cubic-bezier(0.2, 0, 0, 1);
+    animation: aottg2-sheet-in-left 180ms cubic-bezier(0.2, 0, 0, 1);
   }
 
   .aottg2-sheet-content[data-state="closed"][data-side="left"] {
-    animation: aottg2-sheet-out-left 150ms ease-in;
+    animation: aottg2-sheet-out-left 120ms ease-in;
   }
 
   .aottg2-sheet-content[data-state="open"][data-side="top"] {
-    animation: aottg2-sheet-in-top 220ms cubic-bezier(0.2, 0, 0, 1);
+    animation: aottg2-sheet-in-top 180ms cubic-bezier(0.2, 0, 0, 1);
   }
 
   .aottg2-sheet-content[data-state="closed"][data-side="top"] {
-    animation: aottg2-sheet-out-top 150ms ease-in;
+    animation: aottg2-sheet-out-top 120ms ease-in;
   }
 
   .aottg2-sheet-content[data-state="open"][data-side="bottom"] {
-    animation: aottg2-sheet-in-bottom 220ms cubic-bezier(0.2, 0, 0, 1);
+    animation: aottg2-sheet-in-bottom 180ms cubic-bezier(0.2, 0, 0, 1);
   }
 
   .aottg2-sheet-content[data-state="closed"][data-side="bottom"] {
-    animation: aottg2-sheet-out-bottom 150ms ease-in;
+    animation: aottg2-sheet-out-bottom 120ms ease-in;
   }
 
   .aottg2-stagger > * {
-    animation: aottg2-pop-in 260ms cubic-bezier(0.2, 0, 0, 1) both;
+    animation: aottg2-pop-in 180ms cubic-bezier(0.2, 0, 0, 1) both;
   }
 
   .aottg2-stagger > :nth-child(2) {
-    animation-delay: 80ms;
+    animation-delay: 60ms;
   }
 
   .aottg2-stagger > :nth-child(3) {
-    animation-delay: 160ms;
+    animation-delay: 120ms;
   }
 
   @media (prefers-reduced-motion: reduce) {

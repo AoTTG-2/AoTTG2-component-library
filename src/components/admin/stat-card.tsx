@@ -22,7 +22,7 @@ export function StatCard({
         {icon ? <div className="text-muted-foreground">{icon}</div> : null}
       </CardHeader>
       <CardContent>
-        <div className="font-primary text-4xl uppercase text-primary tabular-nums">{value}</div>
+        <div className="font-primary text-2xl uppercase text-primary tabular-nums">{value}</div>
         {hint ? <p className="text-xs text-muted-foreground [text-wrap:pretty]">{hint}</p> : null}
       </CardContent>
     </Card>

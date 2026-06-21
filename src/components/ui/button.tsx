@@ -6,7 +6,7 @@ import BrushSecondaryImage from "@/assets/images/brush-secondary.webp";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-none font-primary text-base font-medium uppercase tracking-wide transition-[transform,background-color,color,opacity,box-shadow] duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-none font-primary text-sm font-medium uppercase tracking-wide transition-[transform,background-color,color,opacity,box-shadow] duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
@@ -20,16 +20,16 @@ const buttonVariants = cva(
         account: "border border-neutral-950/20 bg-neutral-950/5 text-neutral-950 shadow-sm hover:bg-neutral-950/10",
         oauthDiscord: "bg-secondary text-white shadow-sm hover:bg-secondary/90",
         oauthGoogle: "bg-white text-black shadow-sm hover:bg-white/90",
-        brush: "aottg2-brush-button aottg2-brush-button-primary font-primary text-xl text-white shadow-none",
-        brushSecondary: "aottg2-brush-button aottg2-brush-button-secondary font-primary text-xl text-white shadow-none",
-        brushGoogle: "aottg2-brush-button aottg2-brush-button-google font-primary text-xl text-white shadow-none",
+        brush: "aottg2-brush-button aottg2-brush-button-primary font-primary text-lg text-white shadow-none",
+        brushSecondary: "aottg2-brush-button aottg2-brush-button-secondary font-primary text-lg text-white shadow-none",
+        brushGoogle: "aottg2-brush-button aottg2-brush-button-google font-primary text-lg text-white shadow-none",
       },
       size: {
         default: "h-11 px-4 py-2",
         sm: "h-9 px-3 text-xs",
         lg: "h-12 px-8",
         icon: "h-10 w-10",
-        account: "h-12 w-full px-4 py-3 text-base normal-case tracking-normal",
+        account: "h-12 w-full px-4 py-3 text-sm normal-case tracking-normal",
       },
     },
     defaultVariants: { variant: "default", size: "default" },

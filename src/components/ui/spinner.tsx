@@ -22,7 +22,7 @@ const variants = {
 
 function Spinner({ className, size = "default", variant = "primary", label, ...props }: SpinnerProps) {
   return (
-    <div className={cn("inline-flex items-center gap-2 font-primary text-base text-current", variants[variant], className)} {...props}>
+    <div className={cn("inline-flex items-center gap-2 font-primary text-sm text-current", variants[variant], className)} {...props}>
       <span className={cn("aottg2-spinner rounded-full border-current border-r-transparent", sizes[size])} aria-hidden="true" />
       {label ? <span>{label}</span> : <span className="sr-only">Loading</span>}
     </div>

@@ -28,7 +28,7 @@ const DialogContent = React.forwardRef<React.ElementRef<typeof DialogPrimitive.C
         {...props}
       >
         {children}
-        <DialogPrimitive.Close className="aottg2-dialog-close absolute right-2 top-2 flex h-10 w-10 items-center justify-center border-0 font-primary text-3xl lowercase leading-none opacity-80 transition-[opacity,transform] duration-150 ease-out hover:scale-110 hover:opacity-100 active:scale-[0.96] focus-visible:scale-110 focus-visible:outline-none disabled:pointer-events-none">
+        <DialogPrimitive.Close className="aottg2-dialog-close absolute right-2 top-0.5 flex h-10 w-10 -translate-y-px items-center justify-center border-0 font-primary text-xl lowercase leading-none opacity-80 transition-[opacity,transform] duration-150 ease-out hover:scale-110 hover:opacity-100 active:scale-[0.96] focus-visible:scale-110 focus-visible:outline-none disabled:pointer-events-none">
           x
           <span className="sr-only">Close</span>
         </DialogPrimitive.Close>
@@ -45,7 +45,7 @@ const DialogFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivEleme
 DialogFooter.displayName = "DialogFooter";
 
 const DialogTitle = React.forwardRef<React.ElementRef<typeof DialogPrimitive.Title>, React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>>(
-  ({ className, ...props }, ref) => <DialogPrimitive.Title ref={ref} className={cn("aottg2-dialog-title-bar aottg2-texture -mx-6 -mt-6 mb-4 px-6 py-5 pr-16 font-primary text-3xl uppercase leading-none tracking-tight [text-wrap:balance]", className)} {...props} />,
+  ({ className, ...props }, ref) => <DialogPrimitive.Title ref={ref} className={cn("aottg2-dialog-title-bar aottg2-texture -mx-6 -mt-6 mb-4 px-6 py-3 pr-16 font-primary text-xl uppercase leading-none tracking-tight [text-wrap:balance]", className)} {...props} />,
 );
 DialogTitle.displayName = DialogPrimitive.Title.displayName;
 

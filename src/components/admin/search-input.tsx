@@ -19,10 +19,10 @@ export function SearchInput({ className, value, onClear, ...props }: SearchInput
         {hasValue && onClear ? (
           <motion.div
             className="absolute right-1 top-1"
-            initial={{ opacity: 0, scale: 0.25, filter: "blur(4px)" }}
+            initial={{ opacity: 0, scale: 0.25, filter: "blur(2px)" }}
             animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-            exit={{ opacity: 0, scale: 0.25, filter: "blur(4px)" }}
-            transition={{ type: "spring", duration: 0.3, bounce: 0 }}
+            exit={{ opacity: 0, scale: 0.25, filter: "blur(2px)" }}
+            transition={{ type: "spring", duration: 0.18, bounce: 0 }}
           >
             <Button type="button" variant="ghost" size="icon" className="h-10 w-10 text-muted-foreground hover:bg-foreground/10 hover:text-foreground" onClick={onClear}>
               <X className="h-4 w-4" />

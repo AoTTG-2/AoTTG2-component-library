@@ -46,7 +46,7 @@ function Sidebar({ className, defaultCollapsed = false, onCollapsedChange, child
 
 function SidebarHeader({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
   const { collapsed } = useSidebar();
-  return <div className={cn("flex min-h-14 items-center gap-2 p-3 font-primary text-xl text-foreground", collapsed && "justify-center", className)} {...props} />;
+  return <div className={cn("flex min-h-14 items-center gap-2 p-3 font-primary text-lg text-foreground", collapsed && "justify-center", className)} {...props} />;
 }
 
 function SidebarFooter({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
@@ -98,7 +98,7 @@ function SidebarItem({ className, active, href, icon, children, ...props }: Side
       {...(href ? { href } : { type: "button" })}
       aria-current={active ? "page" : undefined}
       className={cn(
-        "flex h-10 min-w-10 w-full items-center gap-3 px-2 font-primary text-base text-foreground transition-[color,background-color,transform] duration-150 ease-out hover:text-primary active:scale-[0.96] aria-[current=page]:text-primary",
+        "flex h-10 min-w-10 w-full items-center gap-3 px-2 font-primary text-sm text-foreground transition-[color,background-color,transform] duration-150 ease-out hover:text-primary active:scale-[0.96] aria-[current=page]:text-primary",
         collapsed && "justify-center px-0",
         className,
       )}
@@ -120,7 +120,7 @@ function SidebarGroup({ className, title, icon, defaultOpen = true, children, ..
       <button
         type="button"
         className={cn(
-          "flex h-10 min-w-10 w-full items-center gap-3 px-2 font-primary text-base text-foreground transition-[color,background-color,transform] duration-150 ease-out hover:text-primary active:scale-[0.96]",
+          "flex h-10 min-w-10 w-full items-center gap-3 px-2 font-primary text-sm text-foreground transition-[color,background-color,transform] duration-150 ease-out hover:text-primary active:scale-[0.96]",
           collapsed && "justify-center px-0",
         )}
         aria-expanded={open && !collapsed}
