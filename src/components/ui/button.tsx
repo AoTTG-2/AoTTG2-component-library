@@ -6,7 +6,7 @@ import BrushSecondaryImage from "@/assets/images/brush-secondary.webp";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-none text-sm font-medium uppercase tracking-wide transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-none text-sm font-medium uppercase tracking-wide transition-[transform,background-color,color,opacity,box-shadow] duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
@@ -40,6 +40,7 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
+  static?: boolean;
 }
 
 const brushImages = {
@@ -50,8 +51,10 @@ const brushImages = {
 
 let brushInstanceCount = 0;
 
+const tapScale = "active:scale-[0.96]";
+
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, style, children, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, static: isStatic = false, style, children, ...props }, ref) => {
     const Comp = asChild ? Slot : "button";
     const brushImage = variant ? brushImages[variant as keyof typeof brushImages] : undefined;
     const brushIndexRef = React.useRef<number>();
@@ -70,7 +73,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     return (
       <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
+        className={cn(buttonVariants({ variant, size }), !isStatic && tapScale, className)}
         ref={ref}
         style={{ ...brushStyle, ...style }}
         {...props}

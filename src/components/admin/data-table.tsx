@@ -32,7 +32,7 @@ export function DataTable<T>({ columns, data, getRowKey, emptyTitle = "No result
             {columns.map((column) => <TableHead key={column.key} className={column.className}>{column.header}</TableHead>)}
           </TableRow>
         </TableHeader>
-        <TableBody>
+        <TableBody className="aottg2-stagger">
           {data.map((row, index) => (
             <TableRow key={getRowKey(row, index)}>
               {columns.map((column) => <TableCell key={column.key} className={column.className}>{column.cell(row)}</TableCell>)}

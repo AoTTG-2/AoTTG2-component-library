@@ -35,6 +35,7 @@ export default defineConfig({
         "clsx",
         "cmdk",
         "lucide-react",
+        "motion/react",
         "tailwind-merge",
       ],
     },
