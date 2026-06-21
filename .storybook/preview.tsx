@@ -22,9 +22,9 @@ const storage = {
   },
 };
 
-function ThemePanel({ theme, palette, children }: { theme: Aottg2ThemeMode; palette: Aottg2Palette; children: ReactNode }) {
+function ThemePanel({ theme, palette, global = false, children }: { theme: Aottg2ThemeMode; palette: Aottg2Palette; global?: boolean; children: ReactNode }) {
   return (
-    <Aottg2Theme theme={theme} palette={palette} className="min-h-screen bg-background p-8 text-foreground">
+    <Aottg2Theme theme={theme} palette={palette} global={global} className="min-h-screen bg-background p-8 text-foreground">
       {children}
     </Aottg2Theme>
   );
@@ -96,7 +96,7 @@ function StorybookThemeControls({ children }: { children: ReactNode }) {
   }
 
   return (
-    <ThemePanel theme={theme} palette={palette}>
+    <ThemePanel theme={theme} palette={palette} global>
       {controls}
       {children}
     </ThemePanel>

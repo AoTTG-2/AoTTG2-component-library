@@ -49,6 +49,10 @@
     --radius: 0;
   }
 
+  :root.dark,
+  :root[data-theme="dark"],
+  body.dark,
+  body[data-theme="dark"],
   .dark,
   .aottg2-theme.dark,
   .aottg2-theme[data-theme="dark"] {
@@ -68,12 +72,16 @@
     --accent-foreground: 0 0% 100%;
     --destructive: 0 70% 50%;
     --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 22%;
-    --input: 0 0% 20%;
+    --border: 0 0% 28%;
+    --input: 0 0% 24%;
     --ring: 350 53% 56%;
     --radius: 0;
   }
 
+  :root[data-palette="workshop"],
+  body[data-palette="workshop"],
+  .aottg2-theme.aottg2-palette-workshop,
+  .aottg2-theme[data-palette="workshop"],
   .aottg2-theme.light.aottg2-palette-workshop,
   .aottg2-theme[data-theme="light"][data-palette="workshop"] {
     --primary: 196 78% 61%;
@@ -85,18 +93,8 @@
     --ring: 196 78% 61%;
   }
 
-  .aottg2-theme.dark.aottg2-palette-workshop,
-  .aottg2-theme[data-theme="dark"][data-palette="workshop"] {
-    --primary: 196 78% 61%;
-    --primary-foreground: 0 0% 7%;
-    --secondary: 215 19% 35%;
-    --secondary-foreground: 0 0% 100%;
-    --accent: 196 78% 61%;
-    --accent-foreground: 0 0% 7%;
-    --ring: 196 78% 61%;
-  }
-
   .aottg2-theme {
+    border-color: hsl(var(--border));
     background: hsl(var(--background));
     color: hsl(var(--foreground));
     color-scheme: light;
@@ -108,7 +106,11 @@
     color-scheme: dark;
   }
 
-  .aottg2-theme * {
+  .aottg2-theme *,
+  [data-aottg2-portal],
+  [data-aottg2-portal] *,
+  [data-radix-popper-content-wrapper] * {
+    border-color: hsl(var(--border));
     border-radius: 0;
   }
 
@@ -146,13 +148,26 @@
     position: absolute;
     inset: -8% -2%;
     z-index: -1;
-    background-image: var(--button-brush-image);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background: var(--button-brush-color, hsl(var(--primary)));
+    -webkit-mask-image: var(--button-brush-image);
+    mask-image: var(--button-brush-image);
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
     animation: aottg2-brush-reveal 0.24s ease-out both;
     animation-delay: var(--button-brush-delay, 0ms);
     transition: transform 0.12s ease-out;
+  }
+
+  .aottg2-brush-button-primary {
+    --button-brush-color: hsl(var(--primary));
+  }
+
+  .aottg2-brush-button-secondary {
+    --button-brush-color: hsl(var(--secondary));
   }
 
   .aottg2-brush-button-content {

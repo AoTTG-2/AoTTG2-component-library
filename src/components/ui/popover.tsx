@@ -13,7 +13,8 @@ const PopoverContent = React.forwardRef<React.ElementRef<typeof PopoverPrimitive
         ref={ref}
         align={align}
         sideOffset={sideOffset}
-        className={cn("z-50 w-72 rounded-none border bg-popover p-4 text-popover-foreground shadow-md outline-none", className)}
+        data-aottg2-portal=""
+        className={cn("z-50 w-72 rounded-none border border-border bg-popover p-4 text-popover-foreground shadow-md outline-none", className)}
         {...props}
       />
     </PopoverPrimitive.Portal>

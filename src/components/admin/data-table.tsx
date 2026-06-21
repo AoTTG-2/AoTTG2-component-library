@@ -25,7 +25,7 @@ export function DataTable<T>({ columns, data, getRowKey, emptyTitle = "No result
   }
 
   return (
-    <div className={cn("rounded-none border bg-card", className)}>
+    <div className={cn("rounded-none border border-border bg-card", className)}>
       <Table>
         <TableHeader>
           <TableRow>

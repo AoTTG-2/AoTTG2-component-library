@@ -21,12 +21,12 @@ const DropdownMenuSubTrigger = React.forwardRef<React.ElementRef<typeof Dropdown
 DropdownMenuSubTrigger.displayName = DropdownMenuPrimitive.SubTrigger.displayName;
 
 const DropdownMenuSubContent = React.forwardRef<React.ElementRef<typeof DropdownMenuPrimitive.SubContent>, React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubContent>>(
-  ({ className, ...props }, ref) => <DropdownMenuPrimitive.SubContent ref={ref} className={cn("z-50 min-w-32 overflow-hidden rounded-none border bg-background p-1 text-foreground shadow-lg", className)} {...props} />,
+  ({ className, ...props }, ref) => <DropdownMenuPrimitive.SubContent ref={ref} data-aottg2-portal="" className={cn("z-50 min-w-32 overflow-hidden rounded-none border border-border bg-popover p-1 text-popover-foreground shadow-lg", className)} {...props} />,
 );
 DropdownMenuSubContent.displayName = DropdownMenuPrimitive.SubContent.displayName;
 
 const DropdownMenuContent = React.forwardRef<React.ElementRef<typeof DropdownMenuPrimitive.Content>, React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Content>>(
-  ({ className, sideOffset = 4, ...props }, ref) => <DropdownMenuPrimitive.Portal><DropdownMenuPrimitive.Content ref={ref} sideOffset={sideOffset} className={cn("z-50 min-w-32 overflow-hidden rounded-none border bg-background p-1 text-foreground shadow-md", className)} {...props} /></DropdownMenuPrimitive.Portal>,
+  ({ className, sideOffset = 4, ...props }, ref) => <DropdownMenuPrimitive.Portal><DropdownMenuPrimitive.Content ref={ref} sideOffset={sideOffset} data-aottg2-portal="" className={cn("z-50 min-w-32 overflow-hidden rounded-none border border-border bg-popover p-1 text-popover-foreground shadow-md", className)} {...props} /></DropdownMenuPrimitive.Portal>,
 );
 DropdownMenuContent.displayName = DropdownMenuPrimitive.Content.displayName;
 
