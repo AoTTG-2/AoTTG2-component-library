@@ -9,14 +9,14 @@ import "@aottg2/ui/styles.css";
 import { Aottg2Theme, Button } from "@aottg2/ui";
 
 export function Example() {
-  return <Aottg2Theme theme="light"><Button variant="brush">Start</Button></Aottg2Theme>;
+  return <Aottg2Theme theme="light" palette="website"><Button variant="brush">Start</Button></Aottg2Theme>;
 }
 ```
 
 Or use the class directly:
 
 ```tsx
-<div className="aottg2-theme dark">
+<div className="aottg2-theme dark aottg2-palette-workshop" data-palette="workshop">
   <App />
 </div>
 ```
@@ -24,6 +24,7 @@ Or use the class directly:
 ## Storybook themes
 
 Use the Storybook toolbar to switch any story between `Light`, `Dark`, and `Light + Dark` side-by-side.
+Use the Palette toolbar to switch between `Website` and `Workshop` palettes.
 
 ## Scripts
 

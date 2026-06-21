@@ -74,6 +74,20 @@
     --radius: 0;
   }
 
+  .aottg2-theme.light.aottg2-palette-workshop,
+  .aottg2-theme[data-theme="light"][data-palette="workshop"] {
+    --primary: 188 76% 37%;
+    --accent: 188 76% 37%;
+    --ring: 188 76% 44%;
+  }
+
+  .aottg2-theme.dark.aottg2-palette-workshop,
+  .aottg2-theme[data-theme="dark"][data-palette="workshop"] {
+    --primary: 188 83% 52%;
+    --accent: 188 83% 52%;
+    --ring: 188 83% 58%;
+  }
+
   .aottg2-theme {
     background: hsl(var(--background));
     color: hsl(var(--foreground));
