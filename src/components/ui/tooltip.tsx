@@ -13,7 +13,7 @@ const TooltipContent = React.forwardRef<React.ElementRef<typeof TooltipPrimitive
       sideOffset={sideOffset}
       data-aottg2-portal=""
       className={cn(
-        "aottg2-pop-content z-50 overflow-hidden rounded-none border border-border bg-popover px-3 py-1.5 text-sm text-popover-foreground shadow-md",
+        "aottg2-pop-content aottg2-texture aottg2-texture-popover z-50 overflow-hidden rounded-none px-3 py-1.5 text-sm text-popover-foreground shadow-[0_3px_0_rgb(0_0_0_/_0.16)]",
         className,
       )}
       {...props}

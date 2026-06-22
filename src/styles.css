@@ -244,6 +244,67 @@
     box-shadow: var(--aottg2-input-shadow);
   }
 
+  .aottg2-emboss-bg,
+  .aottg2-cta-button {
+    --aottg2-cta-from: hsl(var(--primary));
+    --aottg2-cta-to: oklch(from hsl(var(--primary)) calc(l * 1.18) calc(c * 1.18) h);
+    background-color: var(--aottg2-cta-from);
+    background-image: linear-gradient(135deg, var(--aottg2-cta-from), var(--aottg2-cta-to));
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.26),
+      inset 0 -2px 0 rgb(0 0 0 / 0.26),
+      inset 1px 0 0 rgb(255 255 255 / 0.08),
+      0 2px 0 rgb(0 0 0 / 0.28);
+  }
+
+  .aottg2-emboss-bg:hover,
+  .aottg2-cta-button:hover {
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.3),
+      inset 0 -2px 0 rgb(0 0 0 / 0.24),
+      inset 1px 0 0 rgb(255 255 255 / 0.1),
+      0 4px 0 rgb(0 0 0 / 0.26);
+  }
+
+  .aottg2-emboss-bg:active,
+  .aottg2-cta-button:active {
+    box-shadow:
+      inset 0 2px 0 rgb(0 0 0 / 0.28),
+      inset 0 -1px 0 rgb(255 255 255 / 0.14),
+      0 1px 0 rgb(0 0 0 / 0.2);
+  }
+
+  .aottg2-emboss-text {
+    text-shadow: 0 1px 0 rgb(255 255 255 / 0.18), 0 -1px 0 rgb(0 0 0 / 0.22), 0 2px 0 rgb(0 0 0 / 0.18);
+  }
+
+  .aottg2-cta-primary {
+    --aottg2-cta-from: oklch(from hsl(var(--primary)) calc(l * 0.88) calc(c * 1.12) h);
+    --aottg2-cta-to: oklch(from hsl(var(--primary)) calc(l * 1.18) calc(c * 1.18) h);
+  }
+
+  .aottg2-cta-secondary {
+    --aottg2-cta-from: oklch(from hsl(var(--secondary)) calc(l * 0.88) calc(c * 1.12) h);
+    --aottg2-cta-to: oklch(from hsl(var(--secondary)) calc(l * 1.18) calc(c * 1.18) h);
+  }
+
+  .aottg2-cta-destructive {
+    --aottg2-cta-from: oklch(from hsl(var(--destructive)) calc(l * 0.88) calc(c * 1.08) h);
+    --aottg2-cta-to: oklch(from hsl(var(--destructive)) calc(l * 1.14) calc(c * 1.12) h);
+  }
+
+  :root[data-palette="workshop"] .aottg2-emboss-bg.aottg2-cta-primary,
+  :root[data-palette="workshop"] .aottg2-cta-button.aottg2-cta-primary,
+  body[data-palette="workshop"] .aottg2-emboss-bg.aottg2-cta-primary,
+  body[data-palette="workshop"] .aottg2-cta-button.aottg2-cta-primary,
+  .aottg2-theme.aottg2-palette-workshop .aottg2-emboss-bg.aottg2-cta-primary,
+  .aottg2-theme.aottg2-palette-workshop .aottg2-cta-button.aottg2-cta-primary,
+  .aottg2-theme[data-palette="workshop"] .aottg2-emboss-bg.aottg2-cta-primary,
+  .aottg2-theme[data-palette="workshop"] .aottg2-cta-button.aottg2-cta-primary {
+    color: rgb(31 41 55);
+    text-shadow: 0 1px 0 rgb(255 255 255 / 0.28), 0 -1px 0 rgb(0 0 0 / 0.16);
+  }
+
   .aottg2-texture {
     --aottg2-texture-bg: hsl(var(--background));
     --aottg2-texture-noise-opacity: 0.9;
@@ -278,6 +339,10 @@
     --aottg2-texture-bg: hsl(var(--card));
   }
 
+  .aottg2-texture-popover {
+    --aottg2-texture-bg: hsl(var(--popover));
+  }
+
   .aottg2-texture-muted {
     --aottg2-texture-bg: hsl(var(--muted));
   }
@@ -293,7 +358,8 @@
   }
 
   .aottg2-dialog-title-bar {
-    --aottg2-texture-bg: var(--aottg2-dialog-title-bg);
+    --aottg2-cta-from: oklch(from var(--aottg2-dialog-title-bg) calc(l * 0.88) calc(c * 1.12) h);
+    --aottg2-cta-to: oklch(from var(--aottg2-dialog-title-bg) calc(l * 1.18) calc(c * 1.18) h);
     color: var(--aottg2-dialog-title-fg);
   }
 
@@ -439,7 +505,7 @@
     display: inline-flex;
     align-items: baseline;
     white-space: nowrap;
-    text-shadow: 0 2px 0 rgb(0 0 0 / 0.18);
+    text-shadow: inherit;
   }
 
   .aottg2-text-logo-part {
@@ -480,6 +546,7 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 1px 0 rgb(255 255 255 / 0.18)) drop-shadow(0 -1px 0 rgb(0 0 0 / 0.22)) drop-shadow(0 2px 0 rgb(0 0 0 / 0.16));
     text-shadow: none;
   }
 

@@ -45,7 +45,7 @@ const DialogFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivEleme
 DialogFooter.displayName = "DialogFooter";
 
 const DialogTitle = React.forwardRef<React.ElementRef<typeof DialogPrimitive.Title>, React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>>(
-  ({ className, ...props }, ref) => <DialogPrimitive.Title ref={ref} className={cn("aottg2-dialog-title-bar aottg2-texture -mx-6 -mt-6 mb-4 px-6 py-3 pr-16 font-primary text-xl uppercase leading-none tracking-tight [text-wrap:balance]", className)} {...props} />,
+  ({ className, ...props }, ref) => <DialogPrimitive.Title ref={ref} className={cn("aottg2-dialog-title-bar aottg2-emboss-bg -mx-6 -mt-6 mb-4 px-6 py-3 pr-16 font-primary text-xl uppercase leading-none tracking-wider [text-wrap:balance]", className)} {...props} />,
 );
 DialogTitle.displayName = DialogPrimitive.Title.displayName;
 

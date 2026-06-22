@@ -6,19 +6,19 @@ import BrushSecondaryImage from "@/assets/images/brush-secondary.webp";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-none font-primary text-sm font-medium uppercase tracking-wide transition-[transform,background-color,color,opacity,box-shadow] duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-none font-primary text-sm font-medium uppercase tracking-wider transition-[transform,background-color,color,opacity,box-shadow] duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
-        destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
+        default: "aottg2-emboss-bg aottg2-cta-primary text-primary-foreground hover:-translate-y-0.5 hover:opacity-95 active:translate-y-0",
+        destructive: "aottg2-emboss-bg aottg2-cta-destructive text-destructive-foreground hover:-translate-y-0.5 hover:opacity-95 active:translate-y-0",
         outline: "border border-input bg-background/70 shadow-sm hover:bg-accent hover:text-accent-foreground",
-        secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
-        textured: "aottg2-texture aottg2-texture-primary text-primary-foreground shadow hover:opacity-90",
+        secondary: "aottg2-emboss-bg aottg2-cta-secondary text-secondary-foreground hover:-translate-y-0.5 hover:opacity-95 active:translate-y-0",
+        textured: "aottg2-emboss-bg aottg2-cta-primary text-primary-foreground hover:-translate-y-0.5 hover:opacity-95 active:translate-y-0",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         account: "border border-neutral-950/20 bg-neutral-950/5 text-neutral-950 shadow-sm hover:bg-neutral-950/10",
-        oauthDiscord: "bg-secondary text-white shadow-sm hover:bg-secondary/90",
+        oauthDiscord: "aottg2-emboss-bg aottg2-cta-secondary text-white hover:-translate-y-0.5 hover:opacity-95 active:translate-y-0",
         oauthGoogle: "bg-white text-black shadow-sm hover:bg-white/90",
         brush: "aottg2-brush-button aottg2-brush-button-primary font-primary text-lg text-white shadow-none",
         brushSecondary: "aottg2-brush-button aottg2-brush-button-secondary font-primary text-lg text-white shadow-none",

@@ -53,7 +53,7 @@ export function Navbar({ items = defaultItems, logo = "navbar", logoText, fixed 
       <div className="aottg2-texture flex h-14 w-full items-center justify-between px-4 shadow-lg lg:h-16 lg:px-8">
         <button type="button" onClick={onLogoClick} className="flex min-h-10 min-w-10 shrink-0 items-center transition-transform duration-150 ease-out active:scale-[0.96]" aria-label="AoTTG 2 home">
           {logo === "text" ? (
-            <span className="aottg2-text-logo font-primary text-lg leading-none tracking-wide sm:text-xl lg:text-2xl">
+            <span className="aottg2-text-logo aottg2-emboss-text font-primary text-lg leading-none tracking-wide sm:text-xl lg:text-2xl">
               <span className="aottg2-text-logo-part text-foreground" data-text="AoTTG">AoTTG</span>
               <span className="aottg2-text-logo-part aottg2-textured-text text-primary" data-text={textLogo}>{textLogo}</span>
             </span>

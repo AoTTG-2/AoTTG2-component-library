@@ -1,7 +1,7 @@
 import { Toaster as Sonner, toast, type ToasterProps } from "sonner";
 import { cn } from "@/lib/utils";
 
-const Toaster = ({ className, closeButton = true, position = "top-right", toastOptions, ...props }: ToasterProps) => {
+const Toaster = ({ className, closeButton = true, position = "bottom-center", toastOptions, ...props }: ToasterProps) => {
   const classNames = toastOptions?.classNames;
 
   return (
